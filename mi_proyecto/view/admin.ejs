@@ -1,0 +1,38 @@
+<!-- views/admin.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel de Administrador</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <h1>Panel de Administrador</h1>
+  <form action="/admin/aceptar" method="POST">
+    <label for="nombre">Aceptado por:</label>
+    <input type="text" name="nombre" required>
+    <label>Solicitudes Pendientes:</label>
+    <select name="id">
+      <% solicitudes.forEach(solicitud => { %>
+        <option value="<%= solicitud.id %>"><%= solicitud.nombre %> - <%= solicitud.numero_atencion %></option>
+      <% }) %>
+    </select>
+    <button type="submit">Aceptar Solicitud</button>
+  </form>
+
+  <form action="/admin/cerrar" method="POST">
+    <label for="nombre">Cerrado por:</label>
+    <input type="text" name="nombre" required>
+    <label>Solicitudes Aceptadas:</label>
+    <select name="id">
+      <% solicitudes.filter(s => s.estado === 'aceptado').forEach(solicitud => { %>
+        <option value="<%= solicitud.id %>"><%= solicitud.nombre %> - <%= solicitud.numero_atencion %></option>
+      <% }) %>
+    </select>
+    <button type="submit">Cerrar Solicitud</button>
+  </form>
+</body>
+</html>
+
+
+

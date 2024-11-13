@@ -1,0 +1,24 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Solicitud de Usuario</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <h1>Formulario de Solicitud</h1>
+  <form action="/submit" method="POST">
+    <label for="nombre">Nombre:</label>
+    <input type="text" name="nombre" required>
+    <label for="area">Área:</label>
+    <input type="text" name="area" required>
+    <label for="requerimiento">Requerimiento:</label>
+    <textarea name="requerimiento" required></textarea>
+    <button type="submit">Enviar</button>
+  </form>
+</body>
+</html>
+
+
+
